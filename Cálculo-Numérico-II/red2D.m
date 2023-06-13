@@ -3,9 +3,9 @@ clear
     % Intervalo de tiempo [a,b]
     a = 0; % (s)
     b = 2; % (s)
-    % Número de masas horizontales
+    % NÃºmero de masas horizontales
     N = 5;
-    % Número de masas verticales
+    % NÃºmero de masas verticales
     M = 6;
     % Constante del resorte k, masa total M, longitud total L
     k =1; % (N/m)
@@ -20,7 +20,7 @@ Ly0 = Ly/(M-1); % Longitud individual de cada resorte
 x = cell(N,M);
 y = cell(N,M);
 %% Procedimiento
-% Resolución de las oscilaciones en el eje x para un determinado j
+% ResoluciÃ³n de las oscilaciones en el eje x para un determinado j
 for j=1:M
     [t, z, Vz] = SEDO_red1D(a,b,N,k,Mt,Lx,h);
     for i=1:N
@@ -28,7 +28,7 @@ for j=1:M
     end
 end
 
-% Resolución de las oscilaciones en el eje y para un determinado i
+% ResoluciÃ³n de las oscilaciones en el eje y para un determinado i
 for i=1:N
     [t, z, Vz] = SEDO_red1D(a,b,M,k,Mt,Ly,h);
     for j=1:M
@@ -36,7 +36,7 @@ for i=1:N
     end
 end
 toc
-%% Visualización de las vibraciones bidimensionales
+%% VisualizaciÃ³n de las vibraciones bidimensionales
 for i=1:N
     for j=1:M
         plot3(x{i,j},y{i,j},t)
